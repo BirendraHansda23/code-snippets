@@ -1,0 +1,27 @@
+const body = document.querySelector("body");
+body.innerHTML = `<div id="container"></div>`;
+body.style =
+  "width:100vw; display:flex; justify-content: space-around; align-items:center;";
+const container = document.getElementById("container");
+container.style =
+  "display: flex; flex-direction: column; gap: 1px; height:99vh; width: 99vh";
+
+function divGrid(n) {
+  //create rows
+  for (let i = 1; i <= n; i++) {
+    const row = document.createElement("div");
+    row.style = "display: flex; gap: 1px";
+
+    //create pixels in each row
+    for (let j = 1; j <= n; j++) {
+      const pixel = document.createElement("div");
+      pixel.style = "background-color: cyan; height:4px; aspect-ratio: 1/1";
+      pixel.classList.add("box");
+      row.appendChild(pixel); //add pixel to row
+    }
+
+    container.appendChild(row); //add row to body
+  }
+}
+
+divGrid(500);
