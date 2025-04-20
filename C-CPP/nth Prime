@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+
+int isPrime(int n){
+    bool prime = true;
+
+    for(int i=2;i<n/2;i++){
+        if(n%i==0){
+            prime = false;
+            break;
+        }
+    }
+    return prime;
+}
+
+int atPrime(int n){
+
+    if(n==1){
+        return 2;
+    }
+    else if(n==2){
+        return 3;
+    }
+    else {int primePos = 2;
+        int num = 5;
+        while(primePos<n){
+
+            if(isPrime(num)==true){
+                primePos+=1;
+            }
+            num++;
+        }
+
+        return num-1;
+    }
+
+}
+
+int main(){
+
+    int a=7;
+    int b=8;
+
+
+    cout<<(atPrime(a))<<endl;
+    cout<<(atPrime(b))<<endl;
+
+}
